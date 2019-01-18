@@ -10,4 +10,9 @@ import UIKit
 
 class ShoppongListCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var hasBeenAddedLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemNameLabel: UILabel!
+    
+    
 }
