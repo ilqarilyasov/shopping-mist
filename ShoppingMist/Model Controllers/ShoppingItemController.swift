@@ -25,5 +25,14 @@ class ShoppingItemController {
         }
     }
     
+    var addedItems: [ShoppingItem] {
+        let items = shoppingItems.filter({ $0.hasBeenAdded == true })
+        return items
+    }
+    
+    var notAddedItems: [ShoppingItem] {
+        let items = shoppingItems.filter({ $0.hasBeenAdded == false })
+        return items
+    }
     
 }
