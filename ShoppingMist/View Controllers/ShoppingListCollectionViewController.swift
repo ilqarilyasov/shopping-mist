@@ -9,14 +9,10 @@
 import UIKit
 
 
-
 class ShoppingListCollectionViewController: UICollectionViewController {
     
     private let reuseIdentifier = "ItemCell"
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    let shoppingItemController = ShoppingItemController()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,8 +22,22 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NextSegue" {
+            let destVC = segue.destination as! SendOrderViewController
+            destVC.shoppingItemController = shoppingItemController
+        }
     }
 
+    // MARK: - Helper functions
+    
+    func item(for indexPath: IndexPath) -> ShoppingItem {
+        if indexPath.section == 0 {
+            return shoppingItemController.addedItems[indexPath.row]
+        } else {
+            return shoppingItemController.notAddedItems[indexPath.row]
+        }
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -36,7 +46,11 @@ class ShoppingListCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        if section == 0 {
+            return shoppingItemController.addedItems.count
+        } else {
+            return shoppingItemController.notAddedItems.count
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,5 +64,10 @@ class ShoppingListCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        return UICollectionReusableView()
     }
 }

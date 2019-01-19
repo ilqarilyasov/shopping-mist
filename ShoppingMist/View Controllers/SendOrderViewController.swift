@@ -14,6 +14,8 @@ class SendOrderViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userAddressTextField: UITextField!
     
+    var shoppingItemController: ShoppingItemController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

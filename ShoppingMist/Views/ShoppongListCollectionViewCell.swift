@@ -14,5 +14,7 @@ class ShoppongListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     
+    var shoppingItem: ShoppingItem?
+    
     
 }
