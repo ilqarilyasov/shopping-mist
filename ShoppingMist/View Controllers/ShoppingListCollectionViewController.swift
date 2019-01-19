@@ -30,7 +30,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
 
     // MARK: - Helper functions
     
-    func item(for indexPath: IndexPath) -> ShoppingItem {
+    func shoppingItem(for indexPath: IndexPath) -> ShoppingItem {
         if indexPath.section == 0 {
             return shoppingItemController.addedItems[indexPath.row]
         } else {
@@ -57,20 +57,31 @@ class ShoppingListCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         guard let shoppingListCell = cell as? ShoppongListCollectionViewCell else { return cell }
         
-        let shoppingItem = item(for: indexPath)
-        shoppingListCell.shoppingItem = shoppingItem
+        let item = shoppingItem(for: indexPath)
+        shoppingListCell.shoppingItem = item
     
         return shoppingListCell
     }
 
     // MARK: UICollectionViewDelegate
-
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = shoppingItem(for: indexPath)
+        shoppingItemController.toggleValue(for: item)
+        collectionView.reloadItems(at: [indexPath])
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SupplimentaryView", for: indexPath)
+        guard let headerView = view as? SupplementaryCollectionReusableView else { return view }
         
-        return UICollectionReusableView()
+        if indexPath.section == 0 {
+            headerView.headerTitleLabel.text = "Added"
+        } else {
+            headerView.headerTitleLabel.text = "Not Added"
+        }
+        
+        
+        return headerView
     }
 }

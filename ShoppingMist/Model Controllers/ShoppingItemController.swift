@@ -50,4 +50,8 @@ class ShoppingItemController {
         }
     }
     
+    func toggleValue(for item: ShoppingItem) {
+        guard let index = shoppingItems.index(of: item) else { return }
+        shoppingItems[index].hasBeenAdded = !shoppingItems[index].hasBeenAdded
+    }
 }
