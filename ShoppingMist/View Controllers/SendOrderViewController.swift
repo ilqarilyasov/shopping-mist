@@ -9,19 +9,27 @@
 import UIKit
 
 class SendOrderViewController: UIViewController {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var howManyItemsLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userAddressTextField: UITextField!
     
+    // MARK: - Properties
+    
     var shoppingItemController: ShoppingItemController?
+    
+    // MARK: - Lifecycle functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    
+    // MARK: - Actions
     
     @IBAction func sendOrderButtonTapped(_ sender: Any) {
         
     }
-    
 }

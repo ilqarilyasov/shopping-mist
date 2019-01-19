@@ -11,8 +11,12 @@ import UIKit
 
 class ShoppingListCollectionViewController: UICollectionViewController {
     
+    // MARK: - Properties
+    
     private let reuseIdentifier = String.itemCell
     let shoppingItemController = ShoppingItemController()
+    
+    // MARK: - Lifecycle functions
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

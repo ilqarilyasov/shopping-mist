@@ -75,17 +75,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8a-Jg-ruo">
-                                    <rect key="frame" x="48" y="14.5" width="279" height="21"/>
+                                    <rect key="frame" x="37.5" y="14.5" width="300" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="s8a-Jg-ruo" firstAttribute="leading" secondItem="IAs-cN-3IV" secondAttribute="leadingMargin" constant="40" id="Iae-Vz-L06"/>
                                 <constraint firstItem="s8a-Jg-ruo" firstAttribute="centerY" secondItem="IAs-cN-3IV" secondAttribute="centerY" id="QZo-Q2-CaE"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="s8a-Jg-ruo" secondAttribute="trailing" constant="40" id="UwE-KQ-VZG"/>
                                 <constraint firstItem="s8a-Jg-ruo" firstAttribute="centerX" secondItem="IAs-cN-3IV" secondAttribute="centerX" id="t1e-ay-oCC"/>
+                                <constraint firstItem="s8a-Jg-ruo" firstAttribute="width" secondItem="IAs-cN-3IV" secondAttribute="width" multiplier="0.8" id="zsg-WL-EBh"/>
                             </constraints>
                             <connections>
                                 <outlet property="headerTitleLabel" destination="s8a-Jg-ruo" id="Etd-PR-Woc"/>

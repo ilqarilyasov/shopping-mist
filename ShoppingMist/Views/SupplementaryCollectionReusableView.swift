@@ -9,8 +9,12 @@
 import UIKit
 
 class SupplementaryCollectionReusableView: UICollectionReusableView {
+    
+    // MARK: - Outlets
         
     @IBOutlet weak var headerTitleLabel: UILabel!
+    
+    // MARK: - Properties
     
     var shoppingItemController: ShoppingItemController? {
         didSet { updateViews() }
@@ -18,6 +22,8 @@ class SupplementaryCollectionReusableView: UICollectionReusableView {
     var indexPath: IndexPath? {
         didSet { updateViews() }
     }
+    
+    // MARK: - Update Views
     
     private func updateViews() {
         headerTitleLabel.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -29,6 +35,5 @@ class SupplementaryCollectionReusableView: UICollectionReusableView {
         } else {
             headerTitleLabel.text = controller.notAddedItems.isEmpty ? nil : .notAddedCapital
         }
-        
     }
 }

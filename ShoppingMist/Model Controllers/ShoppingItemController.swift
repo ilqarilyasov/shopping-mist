@@ -10,7 +10,7 @@ import UIKit
 
 class ShoppingItemController {
     
-    // MARK: - Init
+    // MARK: - Initializer
     
     init() {
         createShoppingItems()
@@ -56,7 +56,7 @@ class ShoppingItemController {
     
     func toggleValue(for item: ShoppingItem) {
         guard let index = shoppingItems.index(of: item) else { return }
-        shoppingItems[index].hasBeenAdded = !shoppingItems[index].hasBeenAdded
+        shoppingItems[index].hasBeenAdded.toggle()
     }
     
     func shoppingItem(for indexPath: IndexPath) -> ShoppingItem {

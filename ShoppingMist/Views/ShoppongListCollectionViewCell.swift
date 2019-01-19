@@ -10,13 +10,19 @@ import UIKit
 
 class ShoppongListCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var hasBeenAddedLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     
+    // MARK: - Properties
+    
     var shoppingItem: ShoppingItem? {
         didSet { updateViews() }
     }
+    
+    // MARK: - Update Views
     
     private func updateViews() {
         guard let item = shoppingItem else { return }
