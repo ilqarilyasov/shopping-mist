@@ -20,3 +20,14 @@ struct ShoppingItem: Equatable {
         self.hasBeenAdded = hasBeenAdded
     }
 }
+
+extension String {
+    static let added = "added"
+    static let addedCapital = "Added"
+    static let notAdded = "not added"
+    static let notAddedCapital = "Not Added"
+    static let shoppingListPlist = "shoppigList.plist"
+    static let itemCell = "ItemCell"
+    static let nextSegue = "NextSegue"
+    static let supplimentaryView = "SupplimentaryView"
+}

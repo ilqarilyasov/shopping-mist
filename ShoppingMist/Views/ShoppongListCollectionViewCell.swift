@@ -24,10 +24,8 @@ class ShoppongListCollectionViewCell: UICollectionViewCell {
         itemNameLabel.text = item.name
         itemImageView.image = UIImage(data: item.imageData)
         
-        let statusText = item.hasBeenAdded ? "added ☑︎" : "not added"
-        let color: UIColor = item.hasBeenAdded ? #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) : #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        hasBeenAddedLabel.text = statusText
-        hasBeenAddedLabel.textColor = color
+        hasBeenAddedLabel.text = item.hasBeenAdded ? .added : .notAdded
+        hasBeenAddedLabel.textColor = item.hasBeenAdded ? #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) : #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        hasBeenAddedLabel.font = UIFont.italicSystemFont(ofSize: 13)
     }
-    
 }

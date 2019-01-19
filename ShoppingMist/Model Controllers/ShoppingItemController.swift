@@ -34,8 +34,12 @@ class ShoppingItemController {
     var shoppingListURL: URL? {
         let fm = FileManager.default
         guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let url = dir.appendingPathComponent("shoppigList.plist")
+        let url = dir.appendingPathComponent(.shoppingListPlist)
         return url
+    }
+    
+    var sectionNumber: Int {
+        return notAddedItems.isEmpty ? 0 : 1
     }
     
     // MARK: - CRUD methods
@@ -53,5 +57,13 @@ class ShoppingItemController {
     func toggleValue(for item: ShoppingItem) {
         guard let index = shoppingItems.index(of: item) else { return }
         shoppingItems[index].hasBeenAdded = !shoppingItems[index].hasBeenAdded
+    }
+    
+    func shoppingItem(for indexPath: IndexPath) -> ShoppingItem {
+        if indexPath.section == sectionNumber {
+            return addedItems[indexPath.row]
+        } else {
+            return notAddedItems[indexPath.row]
+        }
     }
 }

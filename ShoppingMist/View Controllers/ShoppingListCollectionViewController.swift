@@ -11,7 +11,7 @@ import UIKit
 
 class ShoppingListCollectionViewController: UICollectionViewController {
     
-    private let reuseIdentifier = "ItemCell"
+    private let reuseIdentifier = String.itemCell
     let shoppingItemController = ShoppingItemController()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,19 +22,9 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NextSegue" {
+        if segue.identifier == .nextSegue {
             let destVC = segue.destination as! SendOrderViewController
             destVC.shoppingItemController = shoppingItemController
-        }
-    }
-
-    // MARK: - Helper functions
-    
-    func shoppingItem(for indexPath: IndexPath) -> ShoppingItem {
-        if indexPath.section == 0 {
-            return shoppingItemController.addedItems[indexPath.row]
-        } else {
-            return shoppingItemController.notAddedItems[indexPath.row]
         }
     }
     
@@ -46,7 +36,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == shoppingItemController.sectionNumber {
             return shoppingItemController.addedItems.count
         } else {
             return shoppingItemController.notAddedItems.count
@@ -57,7 +47,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         guard let shoppingListCell = cell as? ShoppongListCollectionViewCell else { return cell }
         
-        let item = shoppingItem(for: indexPath)
+        let item = shoppingItemController.shoppingItem(for: indexPath)
         shoppingListCell.shoppingItem = item
     
         return shoppingListCell
@@ -66,21 +56,17 @@ class ShoppingListCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = shoppingItem(for: indexPath)
+        let item = shoppingItemController.shoppingItem(for: indexPath)
         shoppingItemController.toggleValue(for: item)
-        collectionView.reloadItems(at: [indexPath])
+        collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SupplimentaryView", for: indexPath)
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: .supplimentaryView, for: indexPath)
         guard let headerView = view as? SupplementaryCollectionReusableView else { return view }
         
-        if indexPath.section == 0 {
-            headerView.headerTitleLabel.text = "Added"
-        } else {
-            headerView.headerTitleLabel.text = "Not Added"
-        }
-        
+        headerView.indexPath = indexPath
+        headerView.shoppingItemController = shoppingItemController
         
         return headerView
     }
