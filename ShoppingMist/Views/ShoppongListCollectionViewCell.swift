@@ -14,7 +14,18 @@ class ShoppongListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     
-    var shoppingItem: ShoppingItem?
+    var shoppingItem: ShoppingItem? {
+        didSet { updateViews() }
+    }
     
+    private func updateViews() {
+        guard let item = shoppingItem else { return }
+        
+        itemNameLabel.text = item.name
+        itemImageView.image = UIImage(data: item.imageData)
+        
+        let statusText = item.hasBeenAdded ? "Added" : "Not Added"
+        hasBeenAddedLabel.text = statusText
+    }
     
 }

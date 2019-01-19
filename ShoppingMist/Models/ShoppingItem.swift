@@ -10,12 +10,12 @@ import UIKit
 
 struct ShoppingItem: Equatable {
     
-    let image: Data
+    let imageData: Data
     let name: String
     var hasBeenAdded: Bool
     
-    init(image: Data, name: String, hasBeenAdded: Bool = false) {
-        self.image = image
+    init(imageData: Data, name: String, hasBeenAdded: Bool = false) {
+        self.imageData = imageData
         self.name = name
         self.hasBeenAdded = hasBeenAdded
     }

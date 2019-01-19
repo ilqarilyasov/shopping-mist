@@ -45,7 +45,7 @@ class ShoppingItemController {
             guard let image = UIImage(named: name),
                 let imageData = image.pngData() else { return}
             
-            let item = ShoppingItem(image: imageData, name: name.capitalized)
+            let item = ShoppingItem(imageData: imageData, name: name.capitalized)
             shoppingItems.append(item)
         }
     }
