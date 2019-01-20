@@ -16,7 +16,8 @@
 		8253F57A21F24024007B76D4 /* ShoppingListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253F57921F24024007B76D4 /* ShoppingListCollectionViewController.swift */; };
 		8253F57C21F2404E007B76D4 /* ShoppongListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253F57B21F2404E007B76D4 /* ShoppongListCollectionViewCell.swift */; };
 		8253F58421F242AD007B76D4 /* SendOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8253F58321F242AC007B76D4 /* SendOrderViewController.swift */; };
-		825AD1A821F3E55C00CD9F68 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AD1A721F3E55C00CD9F68 /* HelperExtensions.swift */; };
+		825AD1A821F3E55C00CD9F68 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AD1A721F3E55C00CD9F68 /* StringExtension.swift */; };
+		825AD1AB21F4036400CD9F68 /* ItemCreationStatus+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AD1AA21F4036400CD9F68 /* ItemCreationStatus+UserDefaults.swift */; };
 		82CAB4B421F2DB3100FD8FEF /* SupplementaryCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CAB4B321F2DB3100FD8FEF /* SupplementaryCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +33,8 @@
 		8253F57921F24024007B76D4 /* ShoppingListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCollectionViewController.swift; sourceTree = "<group>"; };
 		8253F57B21F2404E007B76D4 /* ShoppongListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppongListCollectionViewCell.swift; sourceTree = "<group>"; };
 		8253F58321F242AC007B76D4 /* SendOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOrderViewController.swift; sourceTree = "<group>"; };
-		825AD1A721F3E55C00CD9F68 /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
+		825AD1A721F3E55C00CD9F68 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		825AD1AA21F4036400CD9F68 /* ItemCreationStatus+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemCreationStatus+UserDefaults.swift"; sourceTree = "<group>"; };
 		82CAB4B321F2DB3100FD8FEF /* SupplementaryCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +135,8 @@
 		825AD1A921F3E56F00CD9F68 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				825AD1A721F3E55C00CD9F68 /* HelperExtensions.swift */,
+				825AD1A721F3E55C00CD9F68 /* StringExtension.swift */,
+				825AD1AA21F4036400CD9F68 /* ItemCreationStatus+UserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -210,12 +213,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8253F57621F238CD007B76D4 /* ShoppingItem.swift in Sources */,
-				825AD1A821F3E55C00CD9F68 /* HelperExtensions.swift in Sources */,
+				825AD1A821F3E55C00CD9F68 /* StringExtension.swift in Sources */,
 				8253F57821F2395F007B76D4 /* ShoppingItemController.swift in Sources */,
 				8253F57A21F24024007B76D4 /* ShoppingListCollectionViewController.swift in Sources */,
 				82CAB4B421F2DB3100FD8FEF /* SupplementaryCollectionReusableView.swift in Sources */,
 				8253F58421F242AD007B76D4 /* SendOrderViewController.swift in Sources */,
 				8253F57C21F2404E007B76D4 /* ShoppongListCollectionViewCell.swift in Sources */,
+				825AD1AB21F4036400CD9F68 /* ItemCreationStatus+UserDefaults.swift in Sources */,
 				8253F56421F237E8007B76D4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

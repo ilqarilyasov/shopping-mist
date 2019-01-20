@@ -1,5 +1,5 @@
 //
-//  HelperExtensions.swift
+//  StringExtension.swift
 //  ShoppingMist
 //
 //  Created by Ilgar Ilyasov on 1/19/19.
@@ -17,4 +17,6 @@ extension String {
     static let itemCell = "ItemCell"
     static let nextSegue = "NextSegue"
     static let supplimentaryView = "SupplimentaryView"
+    static let itemsCreated = "itemsAreCreated"
+    static let itemsCreatedKey = "itemsAreCreatedKey"
 }

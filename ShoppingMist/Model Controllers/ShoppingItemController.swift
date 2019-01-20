@@ -13,11 +13,16 @@ class ShoppingItemController {
     // MARK: - Initializer
     
     init() {
-        createShoppingItems()
+        if itemCreationStatus.itemsCreated == nil {
+            createShoppingItems()
+        } else {
+            loadFromPersistentStore()
+        }
     }
     
     // MARK: - Properties
     
+    private let itemCreationStatus = ItemCreationStatus()
     private(set) var shoppingItems = [ShoppingItem]()
     private let itemNames = ["apple", "grapes", "milk", "muffin", "popcorn", "soda", "strawberries"]
     
@@ -52,11 +57,14 @@ class ShoppingItemController {
             let item = ShoppingItem(imageData: imageData, name: name.capitalized)
             shoppingItems.append(item)
         }
+        itemCreationStatus.setItsCreated()
+        saveToPersistentStore()
     }
     
     func toggleValue(for item: ShoppingItem) {
         guard let index = shoppingItems.index(of: item) else { return }
         shoppingItems[index].hasBeenAdded.toggle()
+        saveToPersistentStore()
     }
     
     func shoppingItem(for indexPath: IndexPath) -> ShoppingItem {
