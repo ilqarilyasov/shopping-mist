@@ -30,7 +30,7 @@ class SendOrderViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
+    // TODO: - Implement Notification
     @IBAction func sendOrderButtonTapped(_ sender: Any) {
         
     }
@@ -38,18 +38,12 @@ class SendOrderViewController: UIViewController {
     // MARK: - Update Views
     
     private func updateViews() {
-        guard let shoppingItemController = shoppingItemController,
-            isViewLoaded else { return }
+        guard isViewLoaded,
+            let addedItems = shoppingItemController?.addedItems else { return }
         
-        let addedItems = shoppingItemController.addedItems
-        let count = addedItems.count
+        let item = addedItems.count <= 1 ? "item" : "items"
+        let haveItem = addedItems.isEmpty ? "don't have any \(item)" : "have \(addedItems.count) \(item)"
         
-        if addedItems.isEmpty {
-            howManyItemsLabel.text = "You currently don't have any item in your shopping list"
-        } else if addedItems.count == 1 {
-            howManyItemsLabel.text = "You currently have 1 item in your shopping list"
-        } else {
-            howManyItemsLabel.text = "You currently have \(count) items in your shopping list"
-        }
+        howManyItemsLabel.text = "You currently \(haveItem) in your shopping list"
     }
 }

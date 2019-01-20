@@ -16,7 +16,7 @@ class ShoppingItemController {
         createShoppingItems()
     }
     
-    // MARk: - Properties
+    // MARK: - Properties
     
     private(set) var shoppingItems = [ShoppingItem]()
     private let itemNames = ["apple", "grapes", "milk", "muffin", "popcorn", "soda", "strawberries"]
@@ -64,6 +64,34 @@ class ShoppingItemController {
             return addedItems[indexPath.row]
         } else {
             return notAddedItems[indexPath.row]
+        }
+    }
+    
+    // MARK: - Persistent Store
+    
+    func saveToPersistentStore() {
+        guard let url = shoppingListURL else { return }
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let encodedShoppingItems = try encoder.encode(shoppingItems)
+            try encodedShoppingItems.write(to: url)
+        } catch {
+            NSLog("Error saving data to persistent store: \(error)")
+        }
+    }
+    
+    func loadFromPersistentStore() {
+        guard let url = shoppingListURL,
+            FileManager.default.fileExists(atPath: url.path) else { return }
+        let decoder = PropertyListDecoder()
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decodedShoppingList = try decoder.decode([ShoppingItem].self, from: data)
+            shoppingItems = decodedShoppingList
+        } catch {
+            NSLog("Error loading data from persistent store: \(error)")
         }
     }
 }

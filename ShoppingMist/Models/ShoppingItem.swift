@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ShoppingItem: Equatable {
+struct ShoppingItem: Equatable, Codable {
     
     let imageData: Data
     let name: String

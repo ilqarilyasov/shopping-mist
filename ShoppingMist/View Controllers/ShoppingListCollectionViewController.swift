@@ -32,7 +32,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
         }
     }
     
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -57,7 +57,7 @@ class ShoppingListCollectionViewController: UICollectionViewController {
         return shoppingListCell
     }
 
-    // MARK: UICollectionViewDelegate
+    // MARK: - UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = shoppingItemController.shoppingItem(for: indexPath)
